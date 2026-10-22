@@ -1,1 +1,558 @@
 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="description" content="NT Barbearia — cortes, barba e estilo.">
+<title>NT Barbearia — Estilo que combina com você</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0b0b;
+  --surface: #141414;
+  --white: #f4f3ef;
+  --muted: #a4a4a1;
+  --line: rgba(255,255,255,.13);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: "DM Sans", sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+.wrap { width: min(1160px, calc(100% - 40px)); margin: auto; }
+h1,h2,h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+  line-height: .94;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid var(--white);
+  background: var(--white);
+  color: #0b0b0b;
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  transition: .25s;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  background: transparent;
+  color: var(--white);
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--white);
+  border-color: #666;
+}
+header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  background: #090909ed;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
+.nav {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #777;
+  display: grid;
+  place-items: center;
+  font: 800 1.05rem "Barlow Condensed";
+}
+.brand-title {
+  font: 800 1.12rem "Barlow Condensed";
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.brand-sub {
+  display: block;
+  color: #92928f;
+  font-size: .55rem;
+  letter-spacing: .18em;
+  margin-top: 3px;
+}
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  color: #c5c5c2;
+  font-size: .8rem;
+}
+.menu-toggle {
+  display: none;
+  color: white;
+  background: transparent;
+  border: 1px solid #444;
+  padding: 9px 11px;
+}
+.hero {
+  min-height: 760px;
+  height: 100svh;
+  max-height: 960px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 78% 43%,#353535 0,#1c1c1c 26%,#0b0b0b 63%);
+}
+.hero-content { padding-top: 90px; max-width: 770px; }
+.eyebrow {
+  color: #c7c7c2;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-size: clamp(4.8rem,10.8vw,9rem);
+  margin: 26px 0 0;
+}
+.hero h1 span {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px #f3f2ed;
+}
+.hero-copy {
+  max-width: 445px;
+  color: #b8b8b4;
+  line-height: 1.8;
+  font-size: .94rem;
+  margin: 25px 0 29px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-bottom {
+  display: flex;
+  gap: 32px;
+  margin-top: 50px;
+  padding-top: 19px;
+  border-top: 1px solid var(--line);
+  max-width: 470px;
+}
+.hero-stat strong {
+  display: block;
+  font: 700 1.25rem "Barlow Condensed";
+}
+.hero-stat span { font-size: .7rem; color: #92928f; }
+.ticker {
+  overflow: hidden;
+  background: #111;
+  border-block: 1px solid var(--line);
+  padding: 15px 0;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+  font: 700 1.2rem "Barlow Condensed";
+  text-transform: uppercase;
+  letter-spacing: .14em;
+}
+.ticker-track span { padding: 0 25px; }
+.ticker-track b { color: #777; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+section { padding: 100px 0; }
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 42px;
+}
+.section-head h2 {
+  font-size: clamp(3.4rem,6.5vw,6rem);
+  margin: 17px 0 0;
+}
+.section-head p {
+  max-width: 360px;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: .9rem;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+.shop-visual {
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: linear-gradient(135deg,#303030,#111);
+  border: 1px solid var(--line);
+}
+.visual-type strong {
+  display: block;
+  font: 800 clamp(4rem,7vw,7rem)/.9 "Barlow Condensed";
+  text-transform: uppercase;
+}
+.visual-type span {
+  display: block;
+  margin-top: 15px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+}
+.about-copy h3 {
+  font-size: clamp(2.7rem,4.2vw,4.3rem);
+  margin: 20px 0;
+}
+.about-copy p {
+  color: #aaa;
+  line-height: 1.85;
+  font-size: .92rem;
+}
+.values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 28px;
+}
+.value { border-top: 1px solid var(--line); padding-top: 15px; }
+.value strong {
+  display: block;
+  font: 700 1.12rem "Barlow Condensed";
+  text-transform: uppercase;
+}
+.value span { font-size: .76rem; color: #888; }
+.services { background: #101010; }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+}
+.service-card {
+  min-height: 230px;
+  padding: 25px;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg,#1b1b1b,#0c0c0c);
+  transition: .3s;
+}
+.service-card:hover { transform: translateY(-6px); border-color: #888; }
+.service-card h3 { font-size: 2.15rem; margin: 55px 0 8px; }
+.service-card p { color: #999; line-height: 1.7; font-size: .84rem; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr 1fr;
+  grid-template-rows: 210px 210px;
+  gap: 12px;
+}
+.gallery-tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(145deg,#2a2a2a,#101010);
+  border: 1px solid var(--line);
+}
+.gallery-tile:first-child { grid-row: span 2; }
+.gallery-tile:nth-child(4) { grid-column: span 2; }
+.gallery-symbol { font: 800 3.4rem "Barlow Condensed"; color: #555; }
+.gallery-label {
+  position: absolute;
+  bottom: 21px;
+  left: 22px;
+  font: 700 1.05rem "Barlow Condensed";
+  text-transform: uppercase;
+}
+.gallery-note { font-size: .76rem; line-height: 1.7; color: #858581; }
+.booking-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 55px;
+  background: linear-gradient(115deg,#282828,#111 70%);
+  border: 1px solid var(--line);
+}
+.booking-copy h2 { font-size: clamp(3.4rem,6.5vw,6rem); margin: 17px 0; }
+.booking-copy p { max-width: 430px; color: #aaa; line-height: 1.7; }
+.booking-actions { display: flex; flex-direction: column; gap: 12px; }
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.info-panel { padding: 28px; border: 1px solid var(--line); background: #101010; }
+.info-panel h3 { font-size: 1.8rem; }
+.info-row { padding: 17px 0; border-top: 1px solid var(--line); }
+.info-row strong { display: block; margin-bottom: 5px; }
+.info-row span { color: #999; line-height: 1.6; font-size: .82rem; }
+.map-panel {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 22px;
+  background: repeating-linear-gradient(45deg,#141414,#141414 12px,#181818 12px,#181818 24px);
+  border: 1px solid var(--line);
+}
+.map-panel strong {
+  display: block;
+  font: 700 1.5rem "Barlow Condensed";
+  text-transform: uppercase;
+}
+.map-panel p { color: #999; line-height: 1.7; font-size: .78rem; }
+footer { padding: 27px 0; border-top: 1px solid var(--line); }
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer-copy { font-size: .71rem; color: #777; line-height: 1.7; }
+.footer-links { display: flex; gap: 20px; font-size: .78rem; color: #bbb; }
+.reveal { animation: reveal .8s both; }
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media(max-width:780px) {
+  .wrap { width: calc(100% - 30px); }
+  .nav { height: 70px; }
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 22px;
+    padding: 25px;
+    background: #090909;
+    border-bottom: 1px solid var(--line);
+  }
+  .navlinks.open { display: flex; }
+  .nav>.btn { display: none; }
+  .menu-toggle { display: block; }
+  .hero { height: auto; min-height: 720px; padding: 100px 0 60px; }
+  .hero-content { padding-top: 40px; }
+  .hero h1 { font-size: clamp(4.3rem,16.8vw,7rem); }
+  section { padding: 75px 0; }
+  .section-head { display: block; }
+  .section-head p { margin-top: 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .shop-visual { min-height: 350px; }
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: 185px; }
+  .service-card h3 { margin-top: 38px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 175px 175px 175px; }
+  .gallery-tile:first-child { grid-row: auto; }
+  .gallery-tile:nth-child(4) { grid-column: span 2; }
+  .booking-panel { display: block; padding: 40px 24px; }
+  .booking-actions { margin-top: 25px; max-width: 270px; }
+  .location-grid { grid-template-columns: 1fr; }
+  .footer-row { align-items: flex-start; flex-direction: column; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
+}
+</style>
+</head>
+<body>
+<header id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio">
+      <span class="brand-mark">NT</span>
+      <span>
+        <span class="brand-title">NT Barbearia</span>
+        <span class="brand-sub">ESTILO · TRADIÇÃO · MODERNIDADE</span>
+      </span>
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#sobre">A barbearia</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#localizacao">Localização</a>
+    </nav>
+    <a class="btn" href="https://www.instagram.com/nt_barbearia81/" target="_blank" rel="noopener">Agendar horário ↗</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+<main>
+  <section class="hero" id="inicio">
+    <div class="wrap">
+      <div class="hero-content">
+        <div class="eyebrow">Salgado · Segunda a sábado</div>
+        <h1>O corte certo.<span>Sua melhor versão.</span></h1>
+        <p class="hero-copy">Estilo, precisão e atenção aos detalhes em um ambiente que combina tradição com uma visão moderna da barbearia.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://www.instagram.com/nt_barbearia81/" target="_blank" rel="noopener">Agendar meu horário ↗</a>
+          <a class="btn secondary" href="#sobre">Conheça o espaço ↓</a>
+        </div>
+        <div class="hero-bottom">
+          <div class="hero-stat"><strong>09h–19h</strong><span>Horário a confirmar</span></div>
+          <div class="hero-stat"><strong>Seg–Sáb</strong><span>Funcionamento a confirmar</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Corte preciso</span><b>✳</b><span>Estilo autêntico</span><b>✳</b>
+      <span>Tradição & modernidade</span><b>✳</b><span>Seu visual, sua identidade</span><b>✳</b>
+      <span>Corte preciso</span><b>✳</b><span>Estilo autêntico</span><b>✳</b>
+      <span>Tradição & modernidade</span><b>✳</b><span>Seu visual, sua identidade</span><b>✳</b>
+    </div>
+  </div>
+
+  <section id="sobre">
+    <div class="wrap about-grid">
+      <div class="shop-visual">
+        <div class="visual-type">
+          <div class="eyebrow">Um espaço para o seu estilo</div>
+          <strong>Estilo<br>sem excesso.</strong>
+          <span>Barbearia</span>
+        </div>
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow">A barbearia</div>
+        <h3>Clássico na essência.<br>Atual no detalhe.</h3>
+        <p>A NT Barbearia tem uma identidade urbana, ambiente moderno e atenção ao visual de cada cliente. Um lugar para dar uma pausa na rotina, renovar o corte e sair se sentindo bem.</p>
+        <p>Do estilo clássico às tendências atuais, cada detalhe importa — do primeiro contato ao acabamento final.</p>
+        <div class="values">
+          <div class="value"><strong>Identidade própria</strong><span>Um visual que combina com você</span></div>
+          <div class="value"><strong>Atenção ao detalhe</strong><span>Acabamento com personalidade</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Serviços</div><h2>Seu visual.<br>Bem cuidado.</h2></div>
+        <p>Converse com a barbearia para confirmar os serviços disponíveis, valores e horários antes de agendar.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><div class="eyebrow">01 / CORTE</div><h3>Corte masculino</h3><p>Do degradê ao clássico, com atenção ao formato e ao acabamento.</p></article>
+        <article class="service-card"><div class="eyebrow">02 / BARBA</div><h3>Barba & contorno</h3><p>Linhas bem definidas para complementar seu estilo.</p></article>
+        <article class="service-card"><div class="eyebrow">03 / PERSONALIZADO</div><h3>Seu estilo</h3><p>Consulte a equipe sobre opções e combinações de serviços.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Portfólio</div><h2>Trabalho que<br>se percebe.</h2></div>
+        <p>Veja de perto os cortes, os acabamentos e o ambiente da barbearia.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-tile"><span class="gallery-symbol">01</span><span class="gallery-label">Cortes & estilos</span></div>
+        <div class="gallery-tile"><span class="gallery-symbol">02</span><span class="gallery-label">Degradê</span></div>
+        <div class="gallery-tile"><span class="gallery-symbol">03</span><span class="gallery-label">Acabamento</span></div>
+        <div class="gallery-tile"><span class="gallery-symbol">04</span><span class="gallery-label">O espaço</span></div>
+      </div>
+      <p class="gallery-note">Prévia demonstrativa: substituir os espaços por fotos reais autorizadas antes da publicação final.</p>
+    </div>
+  </section>
+
+  <section class="booking">
+    <div class="wrap">
+      <div class="booking-panel">
+        <div class="booking-copy">
+          <div class="eyebrow">Seu próximo horário</div>
+          <h2>Reserve um tempo<br>para você.</h2>
+          <p>Marque com antecedência e combine diretamente com a barbearia o melhor horário para o seu atendimento.</p>
+        </div>
+        <div class="booking-actions">
+          <a class="btn" href="https://www.instagram.com/nt_barbearia81/" target="_blank" rel="noopener">Agendar pelo Instagram ↗</a>
+          <a class="btn secondary" href="#localizacao">Ver endereço ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="localizacao">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Localização & horário</div><h2>Estamos por aqui.</h2></div>
+        <p>Confirme o endereço completo e o horário diretamente com a barbearia.</p>
+      </div>
+      <div class="location-grid">
+        <div class="info-panel">
+          <h3>Planeje sua visita</h3>
+          <div class="info-row"><strong>Endereço</strong><span>Rua São Salvador, 127 — confirmar cidade e bairro.</span></div>
+          <div class="info-row"><strong>Funcionamento</strong><span>Confirmar dias e horários.</span></div>
+          <div class="info-row"><strong>Instagram</strong><span>@nt_barbearia81</span></div>
+          <a class="btn" style="width:100%;margin-top:18px" href="https://www.instagram.com/nt_barbearia81/" target="_blank" rel="noopener">Entrar em contato ↗</a>
+        </div>
+        <div class="map-panel">
+          <div><strong>Visite a barbearia</strong><p>O mapa será conectado após confirmar o endereço completo.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap footer-row">
+    <a class="brand" href="#inicio"><span class="brand-mark">NT</span><span><span class="brand-title">NT Barbearia</span><span class="brand-sub">ESTILO · TRADIÇÃO · MODERNIDADE</span></span></a>
+    <div class="footer-copy">© <span id="year"></span> NT Barbearia.<br>Projeto demonstrativo desenvolvido pela NoFace Empire.</div>
+    <div class="footer-links"><a href="#inicio">Voltar ao topo ↑</a><a href="https://www.instagram.com/nt_barbearia81/" target="_blank" rel="noopener">Instagram ↗</a></div>
+  </div>
+</footer>
+<script>
+const header = document.querySelector('#header');
+const menu = document.querySelector('#menuToggle');
+const nav = document.querySelector('#navlinks');
+
+addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', scrollY > 25);
+}, { passive: true });
+
+menu.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+  menu.textContent = open ? '✕' : '☰';
+});
+
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.textContent = '☰';
+  });
+});
+
+document.querySelector('#year').textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+</script>
+</body>
+</html>
+
